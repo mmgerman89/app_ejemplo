@@ -1,5 +1,7 @@
 AppEjemplo::Application.routes.draw do
   
+  get "users/new"
+
   #get "paginas_estaticas/inicio"
   #get "paginas_estaticas/ayuda"
   #get "paginas_estaticas/acerca"
@@ -10,6 +12,7 @@ AppEjemplo::Application.routes.draw do
   match '/ayuda', to: 'paginas_estaticas#ayuda'
   match '/acerca', to: 'paginas_estaticas#acerca'
   match '/contacto', to: 'paginas_estaticas#contacto'
+  match '/registro', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
