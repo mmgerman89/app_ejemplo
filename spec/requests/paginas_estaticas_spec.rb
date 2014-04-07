@@ -5,62 +5,35 @@ describe "Paginas Estaticas: " do
   
   let(:base) {'Germán Martínez'}
   
+  subject { page }
+  
   describe "Pagina Inicio" do
+    before { visit root_path }
     
-    it "deberia tener <h1> con 'Bienvenido!'" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      visit "/paginas_estaticas/inicio"#paginas_estaticas_index_path
-      #response.status.should be(200)
-      page.should have_selector('h1', :text => 'Bienvenido!')
-    end
-    
-    it "deberia tener el titulo 'Inicio'" do
-      visit '/paginas_estaticas/inicio'
-      page.should have_selector('title', :text => "#{base} | Inicio")
-    end
-    
+    it { should have_selector('h1', text: 'Bienvenido!') }
+    it { should have_selector('title', text: full_title('')) }
+    it { should_not have_selector('title', text: '| Inicio')}
   end
   
   describe "Pagina Ayuda" do
+    before { visit ayuda_path }
     
-    it "deberia tener <h1> con 'Ayuda'" do
-      visit "/paginas_estaticas/ayuda"
-      page.should have_selector('h1', :text => 'Ayuda')
-    end
-    
-    it "deberia tener el titulo 'Ayuda'" do
-      visit '/paginas_estaticas/ayuda'
-      page.should have_selector('title', :text => "#{base} | Ayuda")
-    end
-    
+    it { should have_selector('h1', text: 'Ayuda') }
+    it { should have_selector('title', text: full_title('Ayuda')) }
   end
   
   describe "Pagina Acerca de" do
+    before { visit acerca_path }
     
-    it "deberia tener <h1> con 'Acerca de...'" do
-      visit '/paginas_estaticas/acerca'
-      page.should have_selector('h1', :text => 'Acerca de...')
-    end
-    
-    it "deberia tener el titulo 'Acerca de'" do
-      visit '/paginas_estaticas/acerca'
-      page.should have_selector('title', :text => "#{base} | Acerca de")
-    end
-    
+    it { should have_selector('h1', text: 'Acerca de...') }
+    it { should have_selector('title', text: full_title('Acerca de')) }
   end
   
   describe "Pagina Contacto" do
+    before { visit contacto_path }
     
-    it "deberia tener <h1> con 'Contacto'" do
-      visit '/paginas_estaticas/contacto'
-      page.should have_selector('h1', :text => 'Contacto')
-    end
-    
-    it "deveria tener el titulo 'Contacto'" do
-      visit '/paginas_estaticas/contacto'
-      page.should have_selector('title', :text => "#{base} | Contacto")
-    end
-    
+    it { should have_selector('h1', text: 'Contacto') }
+    it { should have_selector('title', text: full_title('Contacto')) }
   end
   
 end

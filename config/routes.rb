@@ -1,11 +1,15 @@
 AppEjemplo::Application.routes.draw do
-  get "paginas_estaticas/inicio"
+  
+  #get "paginas_estaticas/inicio"
+  #get "paginas_estaticas/ayuda"
+  #get "paginas_estaticas/acerca"
+  #get "paginas_estaticas/contacto"
 
-  get "paginas_estaticas/ayuda"
-  
-  get "paginas_estaticas/acerca"
-  
-  get "paginas_estaticas/contacto"
+  #match '/inicio', to: 'paginas_estaticas#inicio'
+  root to: 'paginas_estaticas#inicio'
+  match '/ayuda', to: 'paginas_estaticas#ayuda'
+  match '/acerca', to: 'paginas_estaticas#acerca'
+  match '/contacto', to: 'paginas_estaticas#contacto'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
