@@ -96,7 +96,7 @@ mode. With gems, use <tt>sudo gem install ruby-debug</tt>. Example:
     end
   end
 
-So the controller will accept the action, run the first line, then present you
+So the controller will aceptar the action, run the first line, then present you
 with a IRB prompt in the server window. Here you can do things like:
 
   >> @posts.inspect
