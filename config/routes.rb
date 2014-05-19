@@ -1,6 +1,7 @@
 AppEjemplo::Application.routes.draw do
   
-  get "users/new"
+  #get "users/new"
+  resources :users
 
   #get "paginas_estaticas/inicio"
   #get "paginas_estaticas/ayuda"
