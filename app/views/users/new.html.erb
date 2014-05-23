@@ -1,3 +1,9 @@
+<% if signed_in? %>
+	<script type="text/javascript">
+		window.location.href = "<%= root_path %>"  // put your correct path in a string here
+	</script>
+<% end %>
+
 <% provide(:title, 'Registro') %>
 <h1>Registro</h1>
 

@@ -1,7 +1,12 @@
+<% if signed_in? %>
+	<script type="text/javascript">
+		window.location.href = "<%= root_path %>"  // put your correct path in a string here
+	</script>
+<% end %>
 
 <% provide(:title, 'Iniciar sesión') %>
 <h1>Iniciar sesión</h1>
-
+<p> <%= root_path %> </p>
 <div class="row">
 	<div class="span6 offset3">
 		<%= form_for(:session, url: sessions_path) do |f| %>
