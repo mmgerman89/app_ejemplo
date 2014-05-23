@@ -7,7 +7,23 @@
 					<li><%= link_to 'Inicio', 	root_path %></li>
 					<li><%= link_to 'Ayuda', 	ayuda_path %></li>
 					<li><%= link_to 'Contacto', contacto_path %></li>
-					<li><%= link_to 'Log in', 	'#' %></li>
+					<!-- <li><%= link_to 'Log in', 	signin_path %></li> -->
+					<% if signed_in? %>
+						<li><%= link_to "Users", '#' %></li>
+						<li id="fat-menu" class="dropdown">
+							<a href="#" class="dropdown-toggle", data-toggle="dropdown">
+								Cuenta <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><%= link_to "Perfil", current_user %></li>
+								<li><%= link_to "Configuración", '#' %></li>
+								<li class="divider"></li>
+								<li><%= link_to "Cerrar Sesión", signout_path, method: "delete" %></li>
+							</ul>
+						</li>
+					<% else %>
+						<li><%= link_to 'Iniciar Sesión', 	signin_path %></li>
+					<% end %>
 				</ul>
 			</nav>
 		</div>

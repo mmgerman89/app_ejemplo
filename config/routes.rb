@@ -1,19 +1,15 @@
 AppEjemplo::Application.routes.draw do
   
-  #get "users/new"
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
-  #get "paginas_estaticas/inicio"
-  #get "paginas_estaticas/ayuda"
-  #get "paginas_estaticas/acerca"
-  #get "paginas_estaticas/contacto"
-
-  #match '/inicio', to: 'paginas_estaticas#inicio'
   root to: 'paginas_estaticas#inicio'
   match '/ayuda', to: 'paginas_estaticas#ayuda'
   match '/acerca', to: 'paginas_estaticas#acerca'
   match '/contacto', to: 'paginas_estaticas#contacto'
   match '/registro', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

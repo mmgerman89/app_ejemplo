@@ -41,6 +41,11 @@ describe "Pagina Usuarios" do
       it "debe crear un usuario" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+      
+      describe "despues de guardar el usuario" do
+        before { click_button submit }
+        it { should have_link('Cerrar Sesión') }
+      end
     end
   end
   
