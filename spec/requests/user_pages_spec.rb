@@ -22,6 +22,7 @@ describe "Pagina Usuarios" do
   describe "registro" do
     before { visit registro_path }
     
+    
     let(:submit) { "Crear mi cuenta" }
     
     describe "con información inválida" do
@@ -31,21 +32,13 @@ describe "Pagina Usuarios" do
     end
     
     describe "con información válida" do
-      before do
-        fill_in "Nombre",         with: "Example User"
-        fill_in "Email",          with: "user@example.com"
-        fill_in "Password",       with: "foobar"
-        fill_in "Confirmación",   with: "foobar"
-      end
+      
+      let(:user) { FactoryGirl.create(:user) }
       
       it "debe crear un usuario" do
-        expect { click_button submit }.to change(User, :count).by(1)
+        expect { visit user_path(user) }.to change(User, :count).by(1)
       end
       
-      describe "despues de guardar el usuario" do
-        before { click_button submit }
-        it { should have_link('Cerrar Sesión') }
-      end
     end
   end
   

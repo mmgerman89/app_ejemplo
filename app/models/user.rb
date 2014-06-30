@@ -12,7 +12,12 @@
 #
 
 class User < ActiveRecord::Base
+  include Humanizer
+  require_human_on :create, :unless => :bypass_humanizer
+  
   attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :humanizer_answer, :humanizer_question_id
+  attr_accessor :bypass_humanizer
   has_secure_password
   
   before_save { |user| user.email = email.downcase }

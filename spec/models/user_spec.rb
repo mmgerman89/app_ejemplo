@@ -15,7 +15,10 @@ require 'spec_helper'
 
 describe User do
   
-  before { @user = User.new(name: "Usuario Ejemplo", email: "ex@ample.com", password: "foobar", password_confirmation: "foobar") }
+  before do @user = User.new(name: "Usuario Ejemplo", email: "ex@ample.com", 
+                            password: "foobar", password_confirmation: "foobar") 
+            @user.bypass_humanizer = true
+          end
   
   subject { @user }
   
